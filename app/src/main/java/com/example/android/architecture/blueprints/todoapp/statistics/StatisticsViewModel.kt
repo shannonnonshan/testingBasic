@@ -16,6 +16,7 @@
 
 package com.example.android.architecture.blueprints.todoapp.statistics
 
+import android.annotation.SuppressLint
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.android.architecture.blueprints.todoapp.data.Result
@@ -51,6 +52,7 @@ class StatisticsViewModel(application: Application) : AndroidViewModel(applicati
     val error: LiveData<Boolean> = tasks.map { it is Error }
     val empty: LiveData<Boolean> = tasks.map { (it as? Success)?.data.isNullOrEmpty() }
 
+    @SuppressLint("SuspiciousIndentation")
     fun refresh() {
         _dataLoading.value = true
             viewModelScope.launch {

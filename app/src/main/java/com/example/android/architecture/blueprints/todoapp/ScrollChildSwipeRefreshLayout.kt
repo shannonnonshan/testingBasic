@@ -16,8 +16,10 @@
 package com.example.android.architecture.blueprints.todoapp
 
 import android.content.Context
+import android.os.Build
 import android.util.AttributeSet
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
 /**
@@ -35,6 +37,7 @@ class ScrollChildSwipeRefreshLayout @JvmOverloads constructor(
 
     var scrollUpChild: View? = null
 
+    @RequiresApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     override fun canChildScrollUp() =
         scrollUpChild?.canScrollVertically(-1) ?: super.canChildScrollUp()
 }
